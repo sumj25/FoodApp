@@ -19,6 +19,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import FormButton from '../../components/FormButton';
 import { windowHeight, windowWidth } from '../../utils/Dimensions';
 import { ScreenHeight, ScreenWidth } from 'react-native-elements/dist/helpers';
+import HomeScreen  from '../HomeScreen';
 const LoginScreen = ({navigation}) => {
  // const navigation = useNavigation();
   const [email, setEmail] = useState();
@@ -30,7 +31,7 @@ const LoginScreen = ({navigation}) => {
 
   return (
    <ScrollView contentContainerStyle={styles.container}>
-      <Header title="Login" type="arrow-left"/>
+      <Header title="Login" type="arrow-left" navigation={navigation}/>
       <View style={{   alignContent:'center',
     alignItems:'center'}}>
       <Image
@@ -80,7 +81,9 @@ const LoginScreen = ({navigation}) => {
           <Button
           title="Log In"
           buttonStyle={globalStyle.styledButton}
-          titleStyle={globalStyle.buttonTitle}/>
+          titleStyle={globalStyle.buttonTitle}
+          onPress={(navigation.navigate("HomeScreen"))}
+          />
           </View>
       <TouchableOpacity style={styles.forgotButton} onPress={() =>{}}>
         <Text style={styles.forgotButtonText}>Forgot Password?</Text>

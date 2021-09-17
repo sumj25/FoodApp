@@ -16,7 +16,7 @@ export default function Header({title,type,navigation}){
                     color = {colors.headerText}
                     size ={28}
                     
-                    onPress ={()=>{}}
+                    onPress ={()=>{navigation.goBack()}}
                 />
                 
             </View>

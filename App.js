@@ -7,6 +7,7 @@ import {colors} from './src/utils/styles';
 import {Icon} from 'react-native-elements';
 import LoginScreen from './src/screen/authScreen/LogInScreen';
 import WelcomeScreen from './src/screen/authScreen/WelcomeScreen';
+import RootNavigator from './src/navigation/RootNavigator';
 
 export default function App(){
   return(
@@ -16,7 +17,7 @@ export default function App(){
       backgroundColor={colors.statusbar}
       />
      {/* <LoginScreen/> */}
-     <WelcomeScreen/>
+     <RootNavigator/>
     </View>
   )
 }

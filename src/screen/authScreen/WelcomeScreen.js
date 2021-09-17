@@ -4,7 +4,9 @@ import {View, Text, StyleSheet, Dimensions,Image,ScrollView} from 'react-native'
 import Swiper from 'react-native-swiper'
 import {Icon, Button,SocialIcon} from 'react-native-elements'
 import { colors ,globalStyle} from '../../utils/styles'
-export default WelcomeScreen=()=>{
+
+import LoginScreen from './LogInScreen'
+export default WelcomeScreen=({navigation})=>{
 
     return (
         <ScrollView contentContainerStyle = {{flexGrow: 1,justifyContent: 'space-between'}} >
@@ -60,7 +62,7 @@ export default WelcomeScreen=()=>{
                     buttonStyle = {globalStyle.styledButton}
                     titleStyle = {globalStyle.buttonTitle}
                       onPress ={()=>{
-                        //navigation.navigate("SignInScreen")
+                        navigation.navigate("LogInScreen")
                       }}
                    />
         </View>
