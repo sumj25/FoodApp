@@ -46,7 +46,7 @@ const styles=StyleSheet.create({
         justifyContent:'center',
         marginLeft:15
     },
-    headerText:{
+  headerText: {
         color:colors.headerText,
         fontSize:25,
         fontWeight:'bold'
