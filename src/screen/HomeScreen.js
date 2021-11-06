@@ -7,9 +7,12 @@ import React,{useState} from 'react';
 
 import {View,Text,StyleSheet,TouchableOpacity,ScrollView, FlatList,Pressable,Image}from 'react-native';
 import {Icon} from 'react-native-elements';
+import Countdown from 'react-native-countdown-component';
 import HomeHeader from '../components/HomeHeader';
 import {colors} from '../utils/styles';
-import {filterData} from '../utils/Data'
+import {filterData,restaurantsData} from '../utils/Data'
+import FoodCard from '../components/FoodCard';
+import { windowWidth,windowHeight } from '../utils/Dimensions';
 export default function HomeScreen(){
   
   const [delivery,setDelivery] = useState(true);
@@ -95,9 +98,87 @@ export default function HomeScreen(){
       )}
       />
     </View>
-    <View style ={styles.cardHeaderTextView}>
+        <View style ={styles.cardHeaderTextView}>
             <Text style ={styles.cardHeaderText}>Free Delivery now</Text>
         </View>
+        <View style = {{flexDirection : 'row', alignItems:"center"}}>
+                <Text style ={{marginLeft:15,fontSize:16,marginTop:-10,marginRight:5}} >Options changing in</Text>
+                <Countdown 
+                    until = {3600}
+                    size ={14}
+                    digitStyle = {{backgroundColor:colors.lightgreen}}
+                    digitTxtStyle ={{color:colors.cardbackground}}
+                    timeToShow = {['M','S']}
+                    timeLabels = {{m:'Min',s:'Sec'}}
+                />
+            </View>   
+        <View>
+           <FlatList
+           style={{marginTop:10,marginBottom:10}}
+           horizontal={true}
+           data={restaurantsData}
+           keyExtractor={(item,index)=>index.toString()}
+           renderItem={({item})=>(
+             <View>
+             <FoodCard
+               screenWidth={windowWidth*0.8}
+               images ={item.images}
+               restaurantName ={item.restaurantName}
+               farAway ={item.farAway}
+               businessAddress ={item.businessAddress}
+               averageReview ={item.averageReview}
+               numberOfReview ={item.numberOfReview}           
+             />
+            </View>
+           )}/>
+        </View>
+        <View style ={styles.cardHeaderTextView}>
+            <Text style ={styles.cardHeaderText}>Promotions available</Text>
+        </View>
+        <View>
+           <FlatList
+           style={{marginTop:10,marginBottom:10}}
+           horizontal={true}
+           data={restaurantsData}
+           keyExtractor={(item,index)=>index.toString()}
+           renderItem={({item})=>(
+             <View>
+             <FoodCard
+               screenWidth={windowWidth*0.8}
+               images ={item.images}
+               restaurantName ={item.restaurantName}
+               farAway ={item.farAway}
+               businessAddress ={item.businessAddress}
+               averageReview ={item.averageReview}
+               numberOfReview ={item.numberOfReview}           
+             />
+            </View>
+           )}/>
+        </View>
+      
+        <View style ={styles.cardHeaderTextView}>
+            <Text style ={styles.cardHeaderText}>Restaurant in your area</Text>
+        </View>
+          <View style={{width:windowWidth,paddingTop:10}}>
+           {
+            restaurantsData.map(item =>(
+                <View key ={item.id} style = {{paddingBottom:20}}>
+                <FoodCard 
+                           screenWidth  ={windowWidth*0.95}
+                           images ={item.images}
+                           restaurantName ={item.restaurantName}
+                           farAway ={item.farAway}
+                           businessAddress ={item.businessAddress}
+                           averageReview ={item.averageReview}
+                           numberOfReview ={item.numberOfReview}
+                           
+                       />
+                </View>
+            )
+            )
+            }
+          </View>
+
     </ScrollView>
  </View>
     );
