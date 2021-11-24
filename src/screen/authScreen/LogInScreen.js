@@ -1,4 +1,5 @@
-import React, {useContext, useState, useRef} from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import React, {useState, useRef} from 'react';
 import {
   View,
   Text,
@@ -8,18 +9,13 @@ import {
   StyleSheet,
   ScrollView,
   TextInput,
-  Dimensions,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
-import {colors, globalStyle, parameters} from '../../utils/styles';
+import {colors, globalStyle} from '../../utils/styles';
 import {Icon, Button} from 'react-native-elements';
 import Header from '../../components/Header';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import FormButton from '../../components/FormButton';
-import {windowHeight, windowWidth} from '../../utils/Dimensions';
 import {ScreenHeight, ScreenWidth} from 'react-native-elements/dist/helpers';
-import ClientRootTab from '../../navigation/ClientTabNavigator';
 
 const LoginScreen = ({navigation}) => {
   // const navigation = useNavigation();
@@ -89,7 +85,7 @@ const LoginScreen = ({navigation}) => {
             title="Log In"
             buttonStyle={globalStyle.styledButton}
             titleStyle={globalStyle.buttonTitle}
-            onPress={navigation.navigate('ClientRootTab')}
+            onPress={navigation.navigate('DrawerNavigator')}
           />
         </View>
         <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
@@ -122,7 +118,7 @@ const LoginScreen = ({navigation}) => {
                 source={require('../../assets/facebook.png')}
               />
             </View>
-            <View style={{width: 10}}></View>
+            <View style={{width: 10}} />
             <View
               style={{
                 height: 50,
