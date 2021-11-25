@@ -1,7 +1,4 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/react-in-jsx-scope */
 import React, {useState, useRef} from 'react';
-
 import {
   View,
   Text,

@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import WelcomeScreen from '../screen/authScreen/WelcomeScreen';
 import LoginScreen from '../screen/authScreen/LogInScreen';
 import RestaurantMapScreen from '../screen/RestaurantMapScreen';
-import DrawerNavigator from './DrawerNavigation';
+import DrawerNavigator from './DrawerNavigatior';
 const AuthStack = createNativeStackNavigator();
 
 export default function AuthNavigation() {
